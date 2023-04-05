@@ -8,16 +8,16 @@ import logging
 
 def extract_data(gpt_answer:str):
     # get candidate and subset lists 
-    candidate_string = re.search(r'candidate = \[(.*?)\n\]', gpt_answer, re.DOTALL).group(1)
-    subset_string = re.search(r'subset = \[(.*?)\n\]', gpt_answer, re.DOTALL).group(1)
+    candidate_string = re.search(r'Candidate.*?(\[\[.*?\]\])', gpt_answer, re.IGNORECASE | re.DOTALL).group(1)
+    subset_string = re.search(r'Subset.*?(\[\[.*?\]\])', gpt_answer, re.IGNORECASE | re.DOTALL).group(1)
     
     # remove code comments if any
     candidate_string = re.sub(r'#.*', '', candidate_string)
     subset_string = re.sub(r'#.*', '', subset_string)
     
     # convert strings to lists
-    candidate = ast.literal_eval(f'[{candidate_string.strip()}]')
-    subset = ast.literal_eval(f'[{subset_string.strip()}]')
+    candidate = ast.literal_eval(candidate_string)
+    subset = ast.literal_eval(subset_string)
     
     return np.array(candidate), np.array(subset)
 

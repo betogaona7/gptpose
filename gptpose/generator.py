@@ -21,7 +21,7 @@ class PoseGenerator:
         """
         self.pose_description = pose_description
         self.output_path = output_path
-        self.logger = get_logger("gpt_posegen")
+        self.logger = get_logger("gptpose")
 
     def generate_pose(self):
         self.logger.info("asking GPT to set the pose based on the pose body description...")
@@ -37,7 +37,7 @@ class PoseGenerator:
 
 
     def _create_chain(self):
-        # this task is not well handled with GPT-3, it requires GPT-4
+        # this task is not well handled by GPT-3, it requires GPT-4
         llm = OpenAI(model_name="gpt-4")
         prompt = PromptTemplate(
             input_variables=["pose_description"],

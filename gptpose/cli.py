@@ -1,7 +1,7 @@
 """
-GPT-PoseGen CLI 
+gptpose CLI
 """
-
+    
 import click 
 import os
 import getpass
