@@ -1,0 +1,7 @@
+-e . 
+pillow==9.5.0
+numpy==1.24.2
+opencv-python-headless==4.7.0.72
+langchain==0.0.123
+openai==0.27.4
+click==8.1.3

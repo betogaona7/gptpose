@@ -2,8 +2,8 @@ from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate 
 from langchain.chains import LLMChain
 
-from templates import POSE_VALUES_TEMPLATE
-from utils import build_image, get_logger
+from gptpose.templates import POSE_VALUES_TEMPLATE
+from gptpose.utils import build_image, get_logger
 
 class PoseGenerator:
     """generates a pose image for the description.

@@ -6,7 +6,7 @@ import click
 import os
 import getpass
 
-from generator import PoseGenerator
+from gptpose.generator import PoseGenerator
 
 def run(
     pose_description: str,

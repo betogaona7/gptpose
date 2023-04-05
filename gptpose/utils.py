@@ -1,5 +1,4 @@
 from PIL import Image 
-from typing import Tuple, List
 import re
 import ast
 import numpy as np 
