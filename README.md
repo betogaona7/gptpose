@@ -16,7 +16,7 @@ And get the pose image proposed by GPT-4:
 
 You can then use that pose image reference along with [ControlNet](https://github.com/lllyasviel/ControlNet) in Stable Diffusion to generate conditioned pictures.
 
-This is useful, if you want to ilustrate a story and you don't know it before hand, therefore the character's posture is also unknown, so you can ask ChatGPT to imagine it, input the body pose description to `gptpose` and get the corresponding pose image template, allowing you to have and end-to-end AI powered workflow for image generation instead of having to know a story beforehand and manually pre-define pose references/templates. 
+This is useful when you want to ilustrate a story and you don't know it before hand, therefore the character's posture is also unknown, so you can ask ChatGPT to imagine it, input the body pose description to `gptpose` and get the corresponding pose image template, allowing you to have and end-to-end AI powered workflow for image generation instead of having to know a story beforehand and manually pre-define pose references/templates. 
 
 ## Installation 
 
