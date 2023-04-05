@@ -18,7 +18,7 @@ You can then use that pose image reference along with [ControlNet](https://githu
 
 This is useful, if you want to ilustrate a story and you don't know it before hand, therefore the character's posture is also unknown, so you can ask ChatGPT to imagine it, input the body pose description to `gptpose` and get the corresponding pose image template, allowing you to have and end-to-end AI powered workflow for image generation instead of having to know a story beforehand and manually pre-define pose references/templates. 
 
-# Installation 
+## Installation 
 
 Run the following command:
 
@@ -26,7 +26,7 @@ Run the following command:
 
 Which will create a cona env called `gptpose-dev`
 
-# Usage 
+## Usage 
 
 Run the following command: 
 
