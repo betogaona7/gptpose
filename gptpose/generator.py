@@ -38,7 +38,7 @@ class PoseGenerator:
 
     def _create_chain(self):
         # this task is not well handled by GPT-3, it requires GPT-4
-        llm = OpenAI(model_name="gpt-4")
+        llm = OpenAI()
         prompt = PromptTemplate(
             input_variables=["pose_description"],
             template = POSE_VALUES_TEMPLATE

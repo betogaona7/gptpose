@@ -1,13 +1,16 @@
 POSE_VALUES_TEMPLATE="""
-First, use OpenPose joints, and geometrically describe the body joints' positions with their angles of the next person's description:
+Imagine you are an OpenPose user expert, and you have the following two lists:
 
-{pose_description} 
+Candidate = [[241,77],[241,120],[191,118],[177,183],[163,252],[298,118],[317,182],[332,245],[225,241],[213,359],[215,454],[270,240],[282,360],[286,456],[232,59],[253,60],[225,70],[260,72]] 
+Subset = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]]
 
-Second, using your answer to the first point, use the draw_bodypose function from OpenPose as a reference to ONLY create the candidate and subset lists that represent the body's pose on a canvas of 512x512. You can just draw the upper body part, the low body part, or the full body depending on what suits the body joints' descriptions better, and expresses the person's action.
+The Candidate is a 2D list with the COCO model keypoint coordinates (x,y) that represent the joints and extremities locations of a default body skeleton on a 512x512 canvas. Subset is a 2D list with 18 indices per row; each index represents a visible keypoint coordinate, and missing keypoints are set to -1. 
 
-Regarding the output, the candidate must be a 2D list with shape (n, 2), where n is the number of keypoints with its x and y coordinates, e.g.,[x, y].  The x and y coords should
-integers corresponding to the pixel positions on the canvas. Subset must be a 2D list with shape (m, 18), where m is the number of persons in the description. Each row contains 
-the indices of the keypoints in the candidate list that form a person's pose. The length of each row should be 18 and If a keypoint is missing for a person, its index should be set to -1 in the subset list.
+Both lists are part of the input to OpenPose's draw_bodypose function which draws the body on the canvas. 
 
-Avoid explanations or answer introductions. Don't display item descriptions neither the first answer.
+Your task is to update the Candidate keypoint coordinates to match as exactly as possible the next body pose description keeping consistency on the limbs connections defined in the limbSeq variable of draw_bodypose, also update the Subset list with -1 for those keypoints that may not be visible. 
+
+So, 1) understand the keypoint indices in the Candidate list, 2) analyze the body pose description and determine which keypoints should be moved, removed, or kept as-is. 3) update the coordinates of the Candidate list based on the body pose description and 4) update the Subset list to reflect any missing or non-visible keypoints. Your output should be the Candidate and Subset lists in one line for each one, no explication is needed nor answer introductions, just the lists. Repeat internally your process at least 3 times until you are sure you have your best attempt and then display the output.
+
+body pose description: {pose_description}
 """
